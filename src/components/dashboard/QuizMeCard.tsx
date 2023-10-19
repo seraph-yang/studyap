@@ -21,7 +21,7 @@ const QuizMeCard = (props: Props) => {
       </CardHeader>
       <CardContent>
         <p className="text-sm text-muted-foreground text-white">
-          Challenge yourself to a quiz with a topic of your choice.
+          Start a quiz!
         </p>
       </CardContent>
     </Card>

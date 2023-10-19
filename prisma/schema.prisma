@@ -64,12 +64,19 @@ model Game {
   topic       String
   timeEnded   DateTime?
   gameType    GameType
+  unit        Int?
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
 
 model topic_count {
+  id    String @id @default(cuid())
+  topic String @unique
+  count Int
+}
+
+model unit_count {
   id    String @id @default(cuid())
   topic String @unique
   count Int

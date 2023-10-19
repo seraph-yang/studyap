@@ -6,7 +6,6 @@ import Link from "next/link";
 
 import { redirect } from "next/navigation";
 import React from "react";
-import ResultsCard from "@/components/statistics/ResultsCard";
 import AccuracyCard from "@/components/statistics/AccuracyCard";
 import TimeTakenCard from "@/components/statistics/TimeTakenCard";
 import QuestionsList from "@/components/statistics/QuestionsList";
@@ -62,7 +61,6 @@ const Statistics = async ({ params: { gameId } }: Props) => {
         </div>
 
         <div className="grid gap-4 mt-4 md:grid-cols-7">
-          <ResultsCard accuracy={accuracy} />
           <AccuracyCard accuracy={accuracy} />
           <TimeTakenCard
             timeEnded={new Date(game.timeEnded ?? 0)}

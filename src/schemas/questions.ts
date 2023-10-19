@@ -4,6 +4,7 @@ export const getQuestionsSchema = z.object({
   topic: z.string(),
   amount: z.number().int().positive().min(1).max(10),
   type: z.enum(["mcq", "open_ended"]),
+  unit: z.number().int().positive().min(1).max(12),
 });
 
 export const checkAnswerSchema = z.object({

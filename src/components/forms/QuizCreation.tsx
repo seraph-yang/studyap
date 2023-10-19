@@ -50,58 +50,38 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
  
-const frameworks = [
+const subjects = [
   {
-    value: "AP Research",
-    label: "AP Research",
-  },
-  {
-    value: "AP Seminar",
-    label: "AP Seminar",
-  },
-  {
-    value: "AP Art History",
-    label: "AP Art History",
-  },
-  {
-    value: "AP Music Theory",
-    label: "AP Music Theory",
-  },
-  {
-    value: "AP Comparative Government and Politics",
-    label: "AP Comparative Government and Politics",
-  },
-  {
-    value: "AP European History",
-    label: "AP European History",
-  },
-  {
-    value: "AP Human Geography",
+    value: "ap human geography",
     label: "AP Human Geography",
   },
   {
-    value: "AP Macroeconomics",
-    label: "AP Macroeconomics",
-  },
-  {
-    value: "AP Microeconomics",
-    label: "AP Microeconomics",
-  },
-  {
-    value: "AP Psychology",
+    value: "ap psychology",
     label: "AP Psychology",
   },
   {
-    value: "AP United States Government and Politics",
-    label: "AP United States Government and Politics",
-  },
-  {
-    value: "AP United States History",
+    value: "ap united states history",
     label: "AP United States History",
   },
   {
-    value: "AP World History: Modern",
-    label: "AP World History: Modern",
+    value: "ap biology",
+    label: "AP Biology",
+  },
+  {
+    value: "ap chemistry",
+    label: "AP Chemistry",
+  },
+  {
+    value: "ap art history",
+    label: "AP Art History",
+  },
+  {
+    value: "ap computer science p",
+    label: "AP Computer Science P",
+  },
+  {
+    value: "ap computer science a",
+    label: "AP Computer Science A",
   },
 ]
 
@@ -119,8 +99,8 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
   const [value, setValue] = React.useState("")
   const { toast } = useToast();
   const { mutate: getQuestions, isLoading } = useMutation({
-    mutationFn: async ({ amount, topic, type }: Input) => {
-      const response = await axios.post("/api/game", { amount, topic, type });
+    mutationFn: async ({ amount, topic, type, unit }: Input) => {
+      const response = await axios.post("/api/game", { amount, topic, type, unit });
       return response.data;
     },
   });
@@ -131,6 +111,7 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
       topic: topicParam,
       type: "mcq",
       amount: 3,
+      unit: 1,
     },
   });
   
@@ -193,7 +174,7 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
                             className="w-[800px] justify-between"
                           >
                             {value
-                              ? frameworks.find((framework) => framework.value === value)?.label
+                              ? subjects.find((subjects) => subjects.value === value)?.label
                               : "Select a subject..."}
                             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                           </Button>
@@ -203,9 +184,9 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
                             <CommandInput placeholder="Search subject..." />
                             <CommandEmpty>No subject found.</CommandEmpty>
                             <CommandGroup>
-                              {frameworks.map((framework) => (
+                              {subjects.map((subjects) => (
                                 <CommandItem
-                                  key={framework.value}
+                                  key={subjects.value}
                                   onSelect={(currentValue) => {
                                     setValue(currentValue === value ? "" : currentValue)
                                     setOpen(false)
@@ -215,10 +196,10 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
                                   <Check
                                     className={cn(
                                       "mr-2 h-4 w-4",
-                                      value === framework.value ? "opacity-100" : "opacity-0"
+                                      value == subjects.value ? "opacity-100" : "opacity-0"
                                     )}
                                   />
-                                  {framework.label}
+                                  {subjects.label}
                                 </CommandItem>
                               ))}
                             </CommandGroup>
@@ -228,7 +209,32 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
                     </FormControl>
                     <FormDescription>
                       Please provide any topic you would like to be quizzed on
-                      here.
+                      here. 
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="unit"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Unit</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Enter a unit"
+                        type="number"
+                        {...field}
+                        onChange={(e) => {
+                          form.setValue("unit", parseInt(e.target.value));
+                        }}
+                        min={1}
+                        max={12}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      You can choose which unit you would like to practice.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -275,18 +281,20 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
                   <CopyCheck className="w-4 h-4 mr-2" /> Multiple Choice
                 </Button>
                 <Separator orientation="vertical" />
+                {
                 <Button
                   variant={
-                    form.getValues("type") === "open_ended"
+                    form.getValues("type") === "." 
                       ? "default"
                       : "secondary"
-                  }
+                  } 
                   className="w-1/2 rounded-none rounded-r-lg"
-                  onClick={() => form.setValue("type", "open_ended")}
+                  onClick={() => form.setValue("type", ".")}
                   type="button"
-                >
-                  <BookOpen className="w-4 h-4 mr-2" /> Open Ended
+                > {/* change to open_ended */}
+                  <BookOpen className="w-4 h-4 mr-2" /> Open Ended (coming soon)
                 </Button>
+                }
               </div>
               <Button disabled={isLoading} type="submit">
                 Submit
