@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import axios from "axios";
 
-export const maxDuration = 5;
+export const maxDuration = 300;
 
 export async function POST(req: Request, res: Response) {
   try {
