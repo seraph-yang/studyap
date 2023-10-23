@@ -24,7 +24,7 @@ const Dashboard = async (props: Props) => {
 
   return (
     <main className="mx-auto flex">
-      <div className="bg-zinc-900 min-h-screen w-[20%]">
+      <div className="bg-zinc-900 min-h-screen w-[320px]">
         <SidebarCard />
       </div>
       <div className="p-8 justify-center mx-auto w-screen">
