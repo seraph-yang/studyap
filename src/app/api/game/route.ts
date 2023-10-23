@@ -24,6 +24,7 @@ export async function POST(req: Request, res: Response) {
         timeStarted: new Date(),
         userId: session.user.id,
         topic,
+        unit,
       },
     });
     await prisma.topic_count.upsert({
