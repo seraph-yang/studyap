@@ -284,12 +284,12 @@ const QuizCreation = ({ topic: topicParam }: Props) => {
                 {
                 <Button
                   variant={
-                    form.getValues("type") === "." 
+                    form.getValues("type") === "mcq" 
                       ? "default"
                       : "secondary"
                   } 
                   className="w-1/2 rounded-none rounded-r-lg"
-                  onClick={() => form.setValue("type", ".")}
+                  onClick={() => form.setValue("type", "mcq")}
                   type="button"
                 > {/* change to open_ended */}
                   <BookOpen className="w-4 h-4 mr-2" /> Open Ended (coming soon)
