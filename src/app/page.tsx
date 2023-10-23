@@ -58,20 +58,20 @@ export default async function Home() {
         </div>
         <div className="bg-black w-screen flex space-x-5 outline-none p-20 justify-center">
           <Card className="bg-gray-500 max-w-sm outline-none p-5">
-            <CardTitle className="sm:text-white text-5xl font-bold">1000+</CardTitle>
-            <CardDescription className="sm:text-white text-xl">AP style questions</CardDescription>
+            <CardTitle className="sm:text-white text-5xl font-bold">...</CardTitle>
+            <CardDescription className="sm:text-white text-xl">Coming soon!</CardDescription>
           </Card>
           <Card className="bg-gray-500 max-w-sm outline-none p-5">
-            <CardTitle className="sm:text-white text-5xl font-bold">38</CardTitle>
-            <CardDescription className="sm:text-white text-xl">AP courses to study</CardDescription>
+            <CardTitle className="sm:text-white text-5xl font-bold">...</CardTitle>
+            <CardDescription className="sm:text-white text-xl">Coming soon!</CardDescription>
           </Card>
           <Card className="bg-gray-500 max-w-sm outline-none p-5">
-            <CardTitle className="sm:text-white text-5xl font-bold">100+</CardTitle>
-            <CardDescription className="sm:text-white text-xl">teachers ensuring accuracy</CardDescription>
+            <CardTitle className="sm:text-white text-5xl font-bold">...</CardTitle>
+            <CardDescription className="sm:text-white text-xl">Coming soon!</CardDescription>
           </Card>
           <Card className="bg-gray-500 max-w-sm outline-none p-5">
-            <CardTitle className="sm:text-white text-5xl font-bold">1500+</CardTitle>
-            <CardDescription className="sm:text-white text-xl">hours of development</CardDescription>
+            <CardTitle className="sm:text-white text-5xl font-bold">...</CardTitle>
+            <CardDescription className="sm:text-white text-xl">Coming soon!</CardDescription>
           </Card>
         </div>
         <div>
@@ -106,11 +106,11 @@ export default async function Home() {
           <Card className="bg-gray-500 max-w-sm outline-none p-5">
             <div className="flex space-x-2">
               <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarImage src="" alt="@shadcn" />
+                <AvatarFallback>SC</AvatarFallback>
               </Avatar>
               <div>
-                <CardTitle className="sm:text-white">Sirooi Cao</CardTitle>
+                <CardTitle className="sm:text-white">Sirui Cao</CardTitle>
                 <CardDescription className="sm:text-white">AP Student</CardDescription>
               </div>
             </div>
@@ -144,7 +144,7 @@ export default async function Home() {
                 <AvatarFallback>SC</AvatarFallback>
               </Avatar>
               <div>
-                <CardTitle className="sm:text-white">Sirooi Cao Jr.</CardTitle>
+                <CardTitle className="sm:text-white">Sirui Cao Jr.</CardTitle>
                 <CardDescription className="sm:text-white">AP Student</CardDescription>
               </div>
             </div>
