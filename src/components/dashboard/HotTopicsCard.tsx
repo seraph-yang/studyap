@@ -28,7 +28,7 @@ export const data = {
   datasets: [
     {
       label: '% Completion',
-      data: [48, 72, 100, 100, 60, 84, 24, 96],
+      data: [100, 100, 100, 100, 100, 100, 100, 100],
       backgroundColor: [ 
         'rgba(255, 93, 91, 0.6)',
         'rgba(254, 181, 128, 0.6)',
