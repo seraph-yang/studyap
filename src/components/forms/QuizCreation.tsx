@@ -75,14 +75,6 @@ const subjects = [
     value: "ap art history",
     label: "AP Art History",
   },
-  {
-    value: "ap computer science p",
-    label: "AP Computer Science P",
-  },
-  {
-    value: "ap computer science a",
-    label: "AP Computer Science A",
-  },
 ]
 
 type Props = {
